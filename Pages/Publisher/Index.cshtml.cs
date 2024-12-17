@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BledeaIuliana_Lab2.Data;
 using BledeaIuliana_Lab2.Models;
 
-namespace BledeaIuliana_Lab2.Pages.Books
+namespace BledeaIuliana_Lab2.Pages.Publisher
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,11 @@ namespace BledeaIuliana_Lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Publisher> Publisher { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Book = await _context.Book
-                .Include(b=>b.Publisher)
-                .ToListAsync();
+            Publisher = await _context.Publisher.ToListAsync();
         }
     }
 }

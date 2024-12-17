@@ -4,6 +4,7 @@ using BledeaIuliana_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BledeaIuliana_Lab2.Migrations
 {
     [DbContext(typeof(BledeaIuliana_Lab2Context))]
-    partial class BledeaIuliana_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241217211958_AddPublisherEntity")]
+    partial class AddPublisherEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

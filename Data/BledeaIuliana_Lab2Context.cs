@@ -15,5 +15,6 @@ namespace BledeaIuliana_Lab2.Data
         }
 
         public DbSet<BledeaIuliana_Lab2.Models.Book> Book { get; set; } = default!;
+        public DbSet<BledeaIuliana_Lab2.Models.Publisher> Publisher { get; set; } = default!;
     }
 }
