@@ -19,9 +19,9 @@ namespace BledeaIuliana_Lab2.Models
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
 
-        public int? PublishingID { get; set; }
-
-        public Publisher? Publisher { get; set; } // Navigation property
+        // Cheia straina catre Publisher
+        public int? PublisherID { get; set; }
+        public Publisher? Publisher { get; set; } // Navigation property catre publisher
 
 
     }

@@ -20,7 +20,7 @@ namespace BledeaIuliana_Lab2.Pages.Publisher
         }
 
         [BindProperty]
-        public Publisher Publisher { get; set; } = default!;
+        public BledeaIuliana_Lab2.Models.Publisher Publisher { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

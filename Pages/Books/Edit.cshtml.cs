@@ -36,7 +36,7 @@ namespace BledeaIuliana_Lab2.Pages.Books
                 return NotFound();
             }
             Book = book;
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<BledeaIuliana_Lab2.Models.Publisher>(), "ID", "PublisherName");
             return Page();
         }
 

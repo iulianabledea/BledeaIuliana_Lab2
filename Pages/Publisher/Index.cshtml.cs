@@ -19,7 +19,7 @@ namespace BledeaIuliana_Lab2.Pages.Publisher
             _context = context;
         }
 
-        public IList<Publisher> Publisher { get;set; } = default!;
+        public IList<BledeaIuliana_Lab2.Models.Publisher> Publisher { get;set; } = default!;
 
         public async Task OnGetAsync()
         {

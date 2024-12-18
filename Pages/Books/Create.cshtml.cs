@@ -21,7 +21,7 @@ namespace BledeaIuliana_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<BledeaIuliana_Lab2.Models.Publisher>(), "ID", "PublisherName");
             return Page();
         }
 
