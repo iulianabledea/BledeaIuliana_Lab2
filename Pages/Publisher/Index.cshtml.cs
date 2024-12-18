@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BledeaIuliana_Lab2.Data;
 using BledeaIuliana_Lab2.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BledeaIuliana_Lab2.Pages.Publisher
 {
@@ -23,7 +24,10 @@ namespace BledeaIuliana_Lab2.Pages.Publisher
 
         public async Task OnGetAsync()
         {
-            Publisher = await _context.Publisher.ToListAsync();
+            Publisher = await _context.Publisher
+                .Include(p => p.Books) // pt a include relatia cu books
+                .ToListAsync();
         }
+
     }
 }

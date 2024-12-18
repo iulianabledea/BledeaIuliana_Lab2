@@ -21,6 +21,7 @@ namespace BledeaIuliana_Lab2.Models
 
         // Cheia straina catre Publisher
         public int? PublisherID { get; set; }
+
         public Publisher? Publisher { get; set; } // Navigation property catre publisher
 
 

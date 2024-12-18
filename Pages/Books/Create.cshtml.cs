@@ -7,32 +7,44 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BledeaIuliana_Lab2.Data;
 using BledeaIuliana_Lab2.Models;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BledeaIuliana_Lab2.Pages.Books
 {
     public class CreateModel : PageModel
     {
-        private readonly BledeaIuliana_Lab2.Data.BledeaIuliana_Lab2Context _context;
+        private readonly BledeaIuliana_Lab2Context _context;
 
-        public CreateModel(BledeaIuliana_Lab2.Data.BledeaIuliana_Lab2Context context)
+        public CreateModel(BledeaIuliana_Lab2Context context)
         {
             _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-            ViewData["PublisherID"] = new SelectList(_context.Set<BledeaIuliana_Lab2.Models.Publisher>(), "ID", "PublisherName");
-            return Page();
         }
 
         [BindProperty]
         public Book Book { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+        // Property to hold the list of publishers
+        public SelectList PublisherList { get; set; }
+
+        public async Task<IActionResult> OnGetAsync()
+        {
+            // Fetch publishers from the database
+            var publishers = await _context.Publisher.ToListAsync();
+
+            // Populate the SelectList
+            PublisherList = new SelectList(publishers, "Id", "PublisherName");
+
+            return Page();
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                // Re-populate dropdown in case of validation failure
+                var publishers = await _context.Publisher.ToListAsync();
+                PublisherList = new SelectList(publishers, "Id", "PublisherName");
                 return Page();
             }
 
@@ -43,3 +55,4 @@ namespace BledeaIuliana_Lab2.Pages.Books
         }
     }
 }
+
